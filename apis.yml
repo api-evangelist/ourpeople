@@ -1,31 +1,47 @@
 aid: ourpeople
 name: OurPeople
 description: >-
-  The OurPeople API uses common standards to allow easy read and write access to
-  your data. 
+  The OurPeople API uses common standards to allow easy read and write access
+  to your data. OurPeople is a frontline communications platform that helps
+  organizations communicate with deskless workers.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Communications
+  - Workforce
   - API
 created: '2025-02-08'
-modified: '2025-02-08'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/ourpeople/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: ourpeople:ourpeople
-    name: OurPeople
+    name: OurPeople API
     description: >-
       The OurPeople API uses common standards to allow easy read and write
-      access to your data. 
-    humanURL: ' https://developer.ourpeople.com/'
+      access to your data.
+    humanURL: https://developer.ourpeople.com/
     tags:
+      - Communications
+      - Workforce
       - API
     properties:
       - type: Documentation
-        url: ' https://developer.ourpeople.com/'
+        url: https://developer.ourpeople.com/
+      - type: Reference
+        url: https://developer.ourpeople.com/reference
+common:
+  - type: Portal
+    url: https://developer.ourpeople.com/
+  - type: Documentation
+    url: https://developer.ourpeople.com/
+  - type: Website
+    url: https://ourpeople.com/
+  - type: Support
+    url: https://ourpeople.com/support
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
