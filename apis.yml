@@ -36,7 +36,7 @@ apis:
         url: https://developer.ourpeople.com/
       - type: Authentication
         url: https://developer.ourpeople.com/docs/api/authentication
-      - type: Rate Limits
+      - type: RateLimits
         url: https://developer.ourpeople.com/docs/api/rate-limits
       - type: OpenAPI
         url: openapi/ourpeople-openapi.yml
