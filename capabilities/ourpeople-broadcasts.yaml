@@ -1,0 +1,205 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OurPeople API — Broadcasts
+  description: 'OurPeople API — Broadcasts. 4 operations. Lead operation: List recent deliveries. Self-contained Naftiko capability
+    covering one Ourpeople business surface.'
+  tags:
+  - Ourpeople
+  - Broadcasts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OURPEOPLE_API_KEY: OURPEOPLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ourpeople-broadcasts
+    baseUri: https://{account}-api.ourpeople.co
+    description: OurPeople API — Broadcasts business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-broadcasts-deliveries
+      path: /v1/broadcasts/deliveries
+      operations:
+      - name: listdeliveries
+        method: GET
+        description: List recent deliveries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-broadcasts-deliveries-deliveryId-contents-contentId-recipients
+      path: /v1/broadcasts/deliveries/{deliveryId}/contents/{contentId}/recipients
+      operations:
+      - name: listcontentrecipients
+        method: GET
+        description: List content recipients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: deliveryId
+          in: path
+          type: string
+          required: true
+        - name: contentId
+          in: path
+          type: string
+          required: true
+        - name: rating
+          in: query
+          type: integer
+          description: Filter by rating value when the content type is a rating.
+    - name: v1-broadcasts-deliveries-deliveryId-recipients
+      path: /v1/broadcasts/deliveries/{deliveryId}/recipients
+      operations:
+      - name: listdeliveryrecipients
+        method: GET
+        description: List delivery recipients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: deliveryId
+          in: path
+          type: string
+          required: true
+    - name: v1-broadcasts-broadcastId
+      path: /v1/broadcasts/{broadcastId}
+      operations:
+      - name: getbroadcast
+        method: GET
+        description: Get broadcast details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: broadcastId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.OURPEOPLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ourpeople-broadcasts-rest
+    port: 8080
+    description: REST adapter for OurPeople API — Broadcasts. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/broadcasts/deliveries
+      name: v1-broadcasts-deliveries
+      description: REST surface for v1-broadcasts-deliveries.
+      operations:
+      - method: GET
+        name: listdeliveries
+        description: List recent deliveries
+        call: ourpeople-broadcasts.listdeliveries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/broadcasts/deliveries/{deliveryid}/contents/{contentid}/recipients
+      name: v1-broadcasts-deliveries-deliveryid-contents-contentid-recipients
+      description: REST surface for v1-broadcasts-deliveries-deliveryId-contents-contentId-recipients.
+      operations:
+      - method: GET
+        name: listcontentrecipients
+        description: List content recipients
+        call: ourpeople-broadcasts.listcontentrecipients
+        with:
+          deliveryId: rest.deliveryId
+          contentId: rest.contentId
+          rating: rest.rating
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/broadcasts/deliveries/{deliveryid}/recipients
+      name: v1-broadcasts-deliveries-deliveryid-recipients
+      description: REST surface for v1-broadcasts-deliveries-deliveryId-recipients.
+      operations:
+      - method: GET
+        name: listdeliveryrecipients
+        description: List delivery recipients
+        call: ourpeople-broadcasts.listdeliveryrecipients
+        with:
+          deliveryId: rest.deliveryId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/broadcasts/{broadcastid}
+      name: v1-broadcasts-broadcastid
+      description: REST surface for v1-broadcasts-broadcastId.
+      operations:
+      - method: GET
+        name: getbroadcast
+        description: Get broadcast details
+        call: ourpeople-broadcasts.getbroadcast
+        with:
+          broadcastId: rest.broadcastId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ourpeople-broadcasts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OurPeople API — Broadcasts. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-recent-deliveries
+      description: List recent deliveries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ourpeople-broadcasts.listdeliveries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-content-recipients
+      description: List content recipients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ourpeople-broadcasts.listcontentrecipients
+      with:
+        deliveryId: tools.deliveryId
+        contentId: tools.contentId
+        rating: tools.rating
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-delivery-recipients
+      description: List delivery recipients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ourpeople-broadcasts.listdeliveryrecipients
+      with:
+        deliveryId: tools.deliveryId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-broadcast-details
+      description: Get broadcast details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ourpeople-broadcasts.getbroadcast
+      with:
+        broadcastId: tools.broadcastId
+      outputParameters:
+      - type: object
+        mapping: $.
