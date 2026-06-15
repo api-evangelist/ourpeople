@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OurPeople API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange client credentials for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}-api.ourpeople.co/v1/auth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange a client ID and secret for a short-lived JWT access token and a long-lived refresh token."
+        },
+        {
+          "info": {
+            "name": "Refresh an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}-api.ourpeople.co/v1/auth/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use a refresh token to obtain a new access token and refresh token."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Broadcasts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List recent deliveries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}-api.ourpeople.co/v1/broadcasts/deliveries",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List recent broadcast deliveries with status and basic metadata."
+        },
+        {
+          "info": {
+            "name": "Get broadcast details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}-api.ourpeople.co/v1/broadcasts/:broadcastId",
+            "params": [
+              {
+                "name": "broadcastId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Fetch detail on the content items attached to a broadcast."
+        },
+        {
+          "info": {
+            "name": "List delivery recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}-api.ourpeople.co/v1/broadcasts/deliveries/:deliveryId/recipients",
+            "params": [
+              {
+                "name": "deliveryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "See recipients who engaged with content in a delivery. Includes seenAt and respondedAt timestamps (null if the action has not occurred)."
+        },
+        {
+          "info": {
+            "name": "List content recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}-api.ourpeople.co/v1/broadcasts/deliveries/:deliveryId/contents/:contentId/recipients",
+            "params": [
+              {
+                "name": "deliveryId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rating",
+                "value": "",
+                "type": "query",
+                "description": "Filter by rating value when the content type is a rating."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Return the recipients for a given content item within a delivery. Supported query parameters vary by content type (e.g., rating-based filtering for rating content)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
