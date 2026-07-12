@@ -42,6 +42,10 @@ apis:
       - FN: OurPeople Support
         email: support@ourpeople.com
 common:
+  - type: DomainSecurity
+    url: security/ourpeople-domain-security.yml
+  - type: Authentication
+    url: authentication/ourpeople-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/OurPeople
   - type: LinkedIn
