@@ -42,6 +42,8 @@ apis:
       - FN: OurPeople Support
         email: support@ourpeople.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/ourpeople-agentic-access.yml
   - type: DomainSecurity
     url: security/ourpeople-domain-security.yml
   - type: Authentication
