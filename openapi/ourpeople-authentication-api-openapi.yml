@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: OurPeople Authentication API
+  description: The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline communications platform that helps organizations communicate with deskless workers. The API is currently in closed beta.
+  contact:
+    name: OurPeople Support
+    email: support@ourpeople.com
+    url: https://ourpeople.com/support
+  version: 1.0.0
+servers:
+- url: https://{account}-api.ourpeople.co
+  description: Account-specific API endpoint
+  variables:
+    account:
+      default: example
+      description: Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.
+tags:
+- name: Authentication
+  description: Token issuance and refresh.
+paths:
+  /v1/auth:
+    post:
+      tags:
+      - Authentication
+      summary: Exchange client credentials for a token
+      description: Exchange a client ID and secret for a short-lived JWT access token and a long-lived refresh token.
+      operationId: createToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Invalid credentials
+  /v1/auth/refresh:
+    post:
+      tags:
+      - Authentication
+      summary: Refresh an access token
+      description: Use a refresh token to obtain a new access token and refresh token.
+      operationId: refreshToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '200':
+          description: Token refreshed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Invalid or expired refresh token
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT access token
+        refresh_token:
+          type: string
+          description: Token used to obtain new access tokens
+    AuthRequest:
+      type: object
+      required:
+      - id
+      - secret
+      properties:
+        id:
+          type: string
+          description: Client identifier
+        secret:
+          type: string
+          description: Client secret credential
+    RefreshRequest:
+      type: object
+      required:
+      - refresh_token
+      properties:
+        refresh_token:
+          type: string
+          description: Previously issued refresh token
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: OurPeople Developer Documentation
+  url: https://developer.ourpeople.com/
