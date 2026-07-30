@@ -4,7 +4,20 @@ description: >-
   The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline
   communications platform that helps organizations communicate with deskless workers.
 url: https://raw.githubusercontent.com/api-evangelist/ourpeople/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ourpeople.png
 type: Index
 position: Consuming
 access: 3rd-Party
@@ -16,31 +29,38 @@ created: '2025-02-08'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: ourpeople:ourpeople-api
-    name: OurPeople API
-    description: >-
-      The OurPeople API uses common standards to allow easy read and write access to your data, with JWT authentication
-      and broadcast delivery tracking endpoints.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.ourpeople.com/
-    baseURL: https://example-api.ourpeople.co
-    tags:
-      - Communications
-      - Workforce
-      - Broadcasts
-      - Authentication
-    properties:
-      - type: Documentation
-        url: https://developer.ourpeople.com/
-      - type: Authentication
-        url: https://developer.ourpeople.com/docs/api/authentication
-      - type: RateLimits
-        url: https://developer.ourpeople.com/docs/api/rate-limits
-      - type: OpenAPI
-        url: openapi/ourpeople-openapi.yml
-    contact:
-      - FN: OurPeople Support
-        email: support@ourpeople.com
+- aid: ourpeople:ourpeople-authentication-api
+  name: OurPeople Authentication API
+  description: Token issuance and refresh.
+  humanURL: https://developer.ourpeople.com/
+  baseURL: https://example-api.ourpeople.co
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/ourpeople-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ourpeople.com/
+  - type: Authentication
+    url: https://developer.ourpeople.com/docs/api/authentication
+  - type: RateLimits
+    url: https://developer.ourpeople.com/docs/api/rate-limits
+- aid: ourpeople:ourpeople-broadcasts-api
+  name: OurPeople Broadcasts API
+  description: Inspect broadcasts, deliveries, and recipient engagement.
+  humanURL: https://developer.ourpeople.com/
+  baseURL: https://example-api.ourpeople.co
+  tags:
+  - Broadcasts
+  properties:
+  - type: OpenAPI
+    url: openapi/ourpeople-broadcasts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ourpeople.com/
+  - type: Authentication
+    url: https://developer.ourpeople.com/docs/api/authentication
+  - type: RateLimits
+    url: https://developer.ourpeople.com/docs/api/rate-limits
 common:
   - type: AgenticAccess
     url: agentic-access/ourpeople-agentic-access.yml
