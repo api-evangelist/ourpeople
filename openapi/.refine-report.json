@@ -1,0 +1,16 @@
+{
+  "provider": "ourpeople",
+  "sources": [
+    "ourpeople-authentication-api-openapi.yml",
+    "ourpeople-broadcasts-api-openapi.yml"
+  ],
+  "outputs": [
+    "ourpeople-authentication-api-openapi.yml",
+    "ourpeople-broadcasts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
