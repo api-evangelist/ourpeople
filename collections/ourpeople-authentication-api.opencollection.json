@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OurPeople Authentication API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange client credentials for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}-api.ourpeople.co/v1/auth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange a client ID and secret for a short-lived JWT access token and a long-lived refresh token."
+        },
+        {
+          "info": {
+            "name": "Refresh an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}-api.ourpeople.co/v1/auth/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use a refresh token to obtain a new access token and refresh token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

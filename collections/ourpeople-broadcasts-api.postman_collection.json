@@ -1,0 +1,999 @@
+{
+  "item": [
+    {
+      "id": "e4691a43-1c4c-4e4c-b249-a185d8dfac30",
+      "name": "Broadcasts",
+      "description": {
+        "content": "Inspect broadcasts, deliveries, and recipient engagement.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc81f3de-e399-4e22-a0dd-1b1d72548ae5",
+          "name": "List recent deliveries",
+          "request": {
+            "name": "List recent deliveries",
+            "description": {
+              "content": "List recent broadcast deliveries with status and basic metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "broadcasts",
+                "deliveries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae8e2b72-44e2-4c44-b1d0-ce2abfba7bfa",
+              "name": "A list of recent deliveries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"broadcastId\": \"string\",\n    \"broadcastName\": \"string\",\n    \"status\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"broadcastId\": \"string\",\n    \"broadcastName\": \"string\",\n    \"status\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d51b7f5e-8b42-4378-bd6c-f2fbe7186b6a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4103bd72-c3d3-4df2-b14f-10a128fea2d8",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "852f2391-3d00-481a-8cd2-3939c0e6233b",
+          "name": "Get broadcast details",
+          "request": {
+            "name": "Get broadcast details",
+            "description": {
+              "content": "Fetch detail on the content items attached to a broadcast.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "broadcasts",
+                ":broadcastId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "broadcastId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c19fca64-6fc3-4cc6-8388-74c0fac989f8",
+              "name": "Broadcast detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    ":broadcastId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "broadcastId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"createdBy\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"createdAt\": \"2005-02-01T15:40:24.786Z\",\n  \"contents\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b783749e-c2ca-46e4-a024-2ced25764cf9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    ":broadcastId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "broadcastId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3dc8aac-6129-4e86-b41d-3d7e19dc602e",
+              "name": "Broadcast not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    ":broadcastId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "broadcastId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd69a5a1-bdb0-4186-9ea5-d2f03ed05e6d",
+          "name": "List delivery recipients",
+          "request": {
+            "name": "List delivery recipients",
+            "description": {
+              "content": "See recipients who engaged with content in a delivery. Includes seenAt and respondedAt timestamps (null if the action has not occurred).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "broadcasts",
+                "deliveries",
+                ":deliveryId",
+                "recipients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deliveryId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eae750be-1753-4bc8-90d1-f45c20707462",
+              "name": "A list of recipients for the delivery",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"seenAt\": \"1965-03-31T18:14:14.784Z\",\n    \"respondedAt\": \"1950-03-03T07:40:47.330Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"seenAt\": \"2009-10-02T01:49:06.633Z\",\n    \"respondedAt\": \"1995-07-30T04:25:01.577Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe5897f8-bdf3-4819-bcf5-d726cb1856c1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7344933a-ff8c-4d9c-8334-847e722e26f4",
+              "name": "Delivery not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd4c112e-20d1-43f2-8366-d6a9422cae33",
+          "name": "List content recipients",
+          "request": {
+            "name": "List content recipients",
+            "description": {
+              "content": "Return the recipients for a given content item within a delivery. Supported query parameters vary by content type (e.g., rating-based filtering for rating content).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "broadcasts",
+                "deliveries",
+                ":deliveryId",
+                "contents",
+                ":contentId",
+                "recipients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "rating",
+                  "value": "<integer>",
+                  "description": "Filter by rating value when the content type is a rating."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deliveryId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contentId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d14e0169-6d44-4b9e-94d3-17a13657c111",
+              "name": "A list of recipients for the content item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "contents",
+                    ":contentId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rating",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"seenAt\": \"1965-03-31T18:14:14.784Z\",\n    \"respondedAt\": \"1950-03-03T07:40:47.330Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"seenAt\": \"2009-10-02T01:49:06.633Z\",\n    \"respondedAt\": \"1995-07-30T04:25:01.577Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff91a134-cd99-40d8-9723-f56cb5883f4d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "contents",
+                    ":contentId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rating",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1137dbaa-562e-4a27-830d-6ac33e693a11",
+              "name": "Content or delivery not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "broadcasts",
+                    "deliveries",
+                    ":deliveryId",
+                    "contents",
+                    ":contentId",
+                    "recipients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "rating",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deliveryId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contentId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your account subdomain. If your console URL is https://example.ourpeople.com, then your API endpoint is https://example-api.ourpeople.co.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "account"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account}}-api.ourpeople.co",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fae5845a-a7b4-411d-96e9-2124be2ec185",
+    "name": "OurPeople Authentication Broadcasts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline communications platform that helps organizations communicate with deskless workers. The API is currently in closed beta.\n\nContact Support:\n Name: OurPeople Support\n Email: support@ourpeople.com",
+      "type": "text/plain"
+    }
+  }
+}
