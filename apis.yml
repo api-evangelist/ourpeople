@@ -73,6 +73,9 @@ apis:
   - type: RateLimits
     url: https://developer.ourpeople.com/docs/api/rate-limits
 common:
+  - type: CapabilityMap
+    url: capabilities/ourpeople-capability-edges.yml
+    name: OurPeople Business Capability Map
   - type: AgenticAccess
     url: agentic-access/ourpeople-agentic-access.yml
   - type: DomainSecurity
