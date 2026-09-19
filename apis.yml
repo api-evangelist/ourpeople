@@ -63,6 +63,8 @@ apis:
   humanURL: https://developer.ourpeople.com/
   baseURL: https://example-api.ourpeople.co
   tags:
+  - Broadcast
+  tags_raw:
   - Broadcasts
   properties:
   - type: OpenAPI
