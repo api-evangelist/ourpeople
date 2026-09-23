@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: OurPeople Authentication Broadcasts API
+  title: OurPeople Broadcasts API
   description: The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline communications platform that helps organizations communicate with deskless workers. The API is currently in closed beta.
   contact:
     name: OurPeople Support
@@ -135,14 +135,27 @@ paths:
           description: Content or delivery not found
 components:
   schemas:
-    ContentItem:
+    Broadcast:
       type: object
       properties:
         id:
           type: string
-        type:
+        name:
           type: string
-          description: The content type (e.g., text, file, rating).
+        createdBy:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        createdAt:
+          type: string
+          format: date-time
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentItem'
     Delivery:
       type: object
       properties:
@@ -165,34 +178,23 @@ components:
         name:
           type: string
         seenAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         respondedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
-    Broadcast:
+    ContentItem:
       type: object
       properties:
         id:
           type: string
-        name:
+        type:
           type: string
-        createdBy:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
-        createdAt:
-          type: string
-          format: date-time
-        contents:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentItem'
+          description: The content type (e.g., text, file, rating).
   securitySchemes:
     bearerAuth:
       type: http

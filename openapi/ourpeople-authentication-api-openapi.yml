@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: OurPeople Authentication API
   description: The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline communications platform that helps organizations communicate with deskless workers. The API is currently in closed beta.
@@ -73,6 +73,14 @@ components:
         refresh_token:
           type: string
           description: Token used to obtain new access tokens
+    RefreshRequest:
+      type: object
+      required:
+      - refresh_token
+      properties:
+        refresh_token:
+          type: string
+          description: Previously issued refresh token
     AuthRequest:
       type: object
       required:
@@ -85,14 +93,6 @@ components:
         secret:
           type: string
           description: Client secret credential
-    RefreshRequest:
-      type: object
-      required:
-      - refresh_token
-      properties:
-        refresh_token:
-          type: string
-          description: Previously issued refresh token
   securitySchemes:
     bearerAuth:
       type: http
