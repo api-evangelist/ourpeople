@@ -64,14 +64,6 @@ paths:
           description: Invalid or expired refresh token
 components:
   schemas:
-    RefreshRequest:
-      type: object
-      required:
-      - refresh_token
-      properties:
-        refresh_token:
-          type: string
-          description: Previously issued refresh token
     TokenResponse:
       type: object
       properties:
@@ -93,6 +85,14 @@ components:
         secret:
           type: string
           description: Client secret credential
+    RefreshRequest:
+      type: object
+      required:
+      - refresh_token
+      properties:
+        refresh_token:
+          type: string
+          description: Previously issued refresh token
   securitySchemes:
     bearerAuth:
       type: http
