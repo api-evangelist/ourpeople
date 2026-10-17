@@ -135,45 +135,6 @@ paths:
           description: Content or delivery not found
 components:
   schemas:
-    Recipient:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        seenAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        respondedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-    ContentItem:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          description: The content type (e.g., text, file, rating).
-    Delivery:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Delivery identifier
-        broadcastId:
-          type: string
-          description: Identifier of the parent broadcast
-        broadcastName:
-          type: string
-        status:
-          type: string
-          description: Delivery status
     Broadcast:
       type: object
       properties:
@@ -195,6 +156,45 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ContentItem'
+    Recipient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        seenAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        respondedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+    Delivery:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Delivery identifier
+        broadcastId:
+          type: string
+          description: Identifier of the parent broadcast
+        broadcastName:
+          type: string
+        status:
+          type: string
+          description: Delivery status
+    ContentItem:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          description: The content type (e.g., text, file, rating).
   securitySchemes:
     bearerAuth:
       type: http
