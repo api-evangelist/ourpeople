@@ -1,4 +1,4 @@
-# OurPeople (ourpeople)
+# OurPeople
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,60 +66,118 @@
 
 The OurPeople API uses common standards to allow easy read and write access to your data. OurPeople is a frontline communications platform that helps organizations communicate with deskless workers.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ourpeople/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ourpeople/refs/heads/main/apis.yml)
+**Areas:** Communications · Workforce · Frontline
 
-## Scope
+## OurPeople on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for OurPeople is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ourpeople/](https://apis.io/providers/ourpeople/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Communications
-- Workforce
-- Frontline
+- [OurPeople Authentication API](https://apis.io/apis/ourpeople/ourpeople-authentication-api/) — Token issuance and refresh.
+- [OurPeople Broadcasts API](https://apis.io/apis/ourpeople/ourpeople-broadcasts-api/) — Inspect broadcasts, deliveries, and recipient engagement.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### OurPeople API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The OurPeople API uses common standards to allow easy read and write access to your data, with JWT authentication and broadcast delivery tracking endpoints.
+- [Ourpeople Agentic Access](https://apis.io/agentic-access/ourpeople/ourpeople-agentic-access/)
 
-- **Human URL:** [https://developer.ourpeople.com/](https://developer.ourpeople.com/)
-- **Base URL:** `https://example-api.ourpeople.co`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Communications
-- Workforce
-- Broadcasts
-- Authentication
+- [OurPeople API](https://apis.io/collections/ourpeople/open-ourpeople/)
+- [OurPeople Authentication API](https://apis.io/collections/ourpeople/open-ourpeople-authentication-api/)
+- [OurPeople Authentication Broadcasts API](https://apis.io/collections/ourpeople/open-ourpeople-broadcasts-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://developer.ourpeople.com/)
-- [Authentication](https://developer.ourpeople.com/docs/api/authentication)
-- [Rate Limits](https://developer.ourpeople.com/docs/api/rate-limits)
-- [OpenAPI](openapi/ourpeople-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ourpeople.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ourpeople.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Ourpeople Authentication](https://apis.io/security/ourpeople/ourpeople-authentication/)
+- [Ourpeople Domain Security](https://apis.io/security/ourpeople/ourpeople-domain-security/)
 
-- [GitHub Organization](https://github.com/OurPeople)
-- [LinkedIn](https://www.linkedin.com/company/our-people-ltd)
-- [Portal](https://developer.ourpeople.com/)
-- [Documentation](https://developer.ourpeople.com/)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ourpeople Plans Pricing](https://apis.io/plans/ourpeople/ourpeople-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ourpeople Rate Limits](https://apis.io/rate-limits/ourpeople/ourpeople-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ourpeople Finops](https://apis.io/finops/ourpeople/ourpeople-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://ourpeople.com/)
+- [Documentation](https://developer.ourpeople.com/)
 - [Support](https://ourpeople.com/support)
+- [GitHub](https://github.com/OurPeople)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 22.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 49.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ourpeople/](https://apis.io/providers/ourpeople/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OurPeople: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ourpeople/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
